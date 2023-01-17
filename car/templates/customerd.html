@@ -1,0 +1,48 @@
+{% extends "user/index.html" %}
+{% load crispy_forms_tags %}
+{% block start %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Data Display</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <table class="table table-striped">
+            <h1>Profile</h1>
+            <br>
+            <br>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Phone no</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for b in cus %}
+                <tr>
+                    <td>{{b.customer_Id}}</td>
+                    <td>{{b.customer_Name}}</td>
+                    <td>{{b.phone_No}}</td>
+                    <td>{{b.email}}</td>
+                    <td>{{b.customer_address}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br><br>
+        {% endblock start %}
+</body>
+
+</html>

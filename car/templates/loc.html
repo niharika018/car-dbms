@@ -1,0 +1,58 @@
+{% extends "user/index.html" %}
+{% load crispy_forms_tags %}
+{% block start %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Data Display</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <table class="table table-striped">
+        <h1>Location Info Table</h1>
+        <a class="button" href="{% url 'search' %}" style="border: 1px solid black; margin:1%;">Search</a>
+        <br>
+            <thead>
+                <tr>
+                    <th>Location Id</th>
+                    <th>Country</th>
+                    <th>State</th>
+                    <th>City</th>
+                    <th>Area</th>
+					<th>Pincode</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for b in loc %}
+                <tr>
+                    <td>{{b.location_Id}}</td>
+                    <td>{{b.country}}</td>
+                    <td>{{b.state}}</td>
+					<td>{{b.city}}</td>
+                    <td>{{b.area}}</td>
+                    <td>{{b.pincode}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+{% endblock start %}
+
+</html>

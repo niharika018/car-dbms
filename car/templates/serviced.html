@@ -1,0 +1,69 @@
+{% extends "user/index.html" %}
+{% load crispy_forms_tags %}
+{% block start %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Data Display</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        a.button {
+            -webkit-appearance: button;
+            -moz-appearance: button;
+            appearance: button;
+    
+            text-decoration: none;
+            color: initial;
+        }
+        footer.aa {
+  text-align: center;
+  padding: 3px;
+  background-color: DarkSalmon;
+  color: white;
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <table class="table table-striped">
+            <h1>Service Info Table</h1>
+            <br>
+            <thead>
+                <tr>
+                    <th>Service Id</th>
+                    <th>Location Id</th>
+                    <th>Service date</th>
+                    <th>Vehicle Number</th>
+                    <th>Vehicle Issue</th>
+                    <td>Delete</td>
+                </tr>
+            </thead>
+            <tbody>
+                {% for b in sd %}
+                <tr>
+                    <td>{{b.service_Id}}</td>
+                    <td>{{b.location_Id}}</td>
+                    <td>{{b.service_date}}</td>
+                    <td>{{b.vehicle_number}}</td>
+                    <td>{{b.vehicle_issue}}</td>
+                    <td>
+                        <form method="POST">
+                            {% csrf_token %}
+                            <input type="submit" style="background-color: red;" value="Yes">
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+    </div>
+    {% endblock start %}
+</body>
+
+</html>
